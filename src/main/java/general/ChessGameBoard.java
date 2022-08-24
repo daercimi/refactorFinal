@@ -1,7 +1,9 @@
 package general;
 import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.Serializable;
 import java.awt.Color;
 import javax.swing.JPanel;
 
@@ -27,7 +29,7 @@ import java.awt.GridLayout;
  */
 public class ChessGameBoard extends JPanel{
     private BoardSquare[][] chessCells;
-    private BoardListener   listener;
+    private BoardListener   listener ;
     // ----------------------------------------------------------
     /**
      * Returns the entire board.
@@ -82,10 +84,10 @@ public class ChessGameBoard extends JPanel{
     /**
      * Gets all the white game pieces on the board.
      *
-     * @return ArrayList<GamePiece> the pieces
+     * @return List<GamePiece> the pieces
      */
-    public ArrayList<ChessGamePiece> getAllWhitePieces(){
-        ArrayList<ChessGamePiece> whitePieces = new ArrayList<ChessGamePiece>();
+    public List<ChessGamePiece> getAllWhitePieces(){
+        List<ChessGamePiece> whitePieces = new ArrayList<ChessGamePiece>();
         for ( int i = 0; i < 8; i++ ){
             for ( int j = 0; j < 8; j++ ){
                 if ( chessCells[i][j].getPieceOnSquare() != null
@@ -103,8 +105,8 @@ public class ChessGameBoard extends JPanel{
      *
      * @return ArrayList<GamePiece> the pieces
      */
-    public ArrayList<ChessGamePiece> getAllBlackPieces(){
-        ArrayList<ChessGamePiece> blackPieces = new ArrayList<ChessGamePiece>();
+    public List<ChessGamePiece> getAllBlackPieces(){
+        List<ChessGamePiece> blackPieces = new ArrayList<ChessGamePiece>();
         for ( int i = 0; i < 8; i++ ){
             for ( int j = 0; j < 8; j++ ){
                 if ( chessCells[i][j].getPieceOnSquare() != null
@@ -243,7 +245,7 @@ public class ChessGameBoard extends JPanel{
      * @version 2010.11.16
      */
     private class BoardListener
-        implements MouseListener
+        implements MouseListener, Serializable
     {
         /**
          * Do an action when the left mouse button is clicked.

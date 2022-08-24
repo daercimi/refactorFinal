@@ -9,6 +9,7 @@ import ui.ChessPanel;
  * @author Myles David II (davidmm2)
  * @author Danielle Bushrow (dbushrow)
  * @version 2010.11.17
+ * @refactorer Daniel Cifuentes (daercimi)
  */
 public class ChessMain{
     // ----------------------------------------------------------
@@ -20,7 +21,7 @@ public class ChessMain{
      */
     public static void main( String[] args ){
         JFrame frame = new JFrame( "YetAnotherChessGame 1.0" );
-        frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        frame.setDefaultCloseOperation( javax.swing.WindowConstants.EXIT_ON_CLOSE );
         frame.getContentPane().add( new ChessPanel() );
         frame.pack();
         frame.setVisible( true );

@@ -2,5 +2,5 @@ projectKey=chessRefactor
 serverUrl=http://localhost:9000
 serverVersion=9.0.0.45539
 dashboardUrl=http://localhost:9000/dashboard?id=chessRefactor
-ceTaskId=AYLRnnnbFPkhB2aEpXRC
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AYLRnnnbFPkhB2aEpXRC
+ceTaskId=AYLRzk6MFPkhB2aEpXRE
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AYLRzk6MFPkhB2aEpXRE
