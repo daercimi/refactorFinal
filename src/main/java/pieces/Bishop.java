@@ -1,5 +1,9 @@
+package pieces;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+
+import general.ChessGameBoard;
+import general.ChessGamePiece;
 // -------------------------------------------------------------------------
 /**
  * Class to represent the Bishop piece.
@@ -55,17 +59,17 @@ public class Bishop extends ChessGamePiece{
 	public ImageIcon createImageByPieceType(){
 		if ( getColorOfPiece() == ChessGamePiece.WHITE ){
 			return new ImageIcon(
-				getClass().getResource("chessImages/WhiteBishop.gif")
+				getClass().getResource("../chessImages/WhiteBishop.gif")
 			);			
 		}
 		else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
 			return new ImageIcon(
-				getClass().getResource("chessImages/BlackBishop.gif")
+				getClass().getResource("../chessImages/BlackBishop.gif")
 			);
 		}
 		else{
 			return new ImageIcon(
-				getClass().getResource("chessImages/BlackBishop.gif")
+				getClass().getResource("../chessImages/BlackBishop.gif")
 			);
 		}
 	}

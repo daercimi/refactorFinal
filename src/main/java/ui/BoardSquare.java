@@ -1,5 +1,8 @@
+package ui;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import general.ChessGamePiece;
 // -------------------------------------------------------------------------
 /**
  * Represents a cell on the chess board. Holds a game piece.

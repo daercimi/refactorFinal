@@ -1,6 +1,9 @@
+package pieces;
 import java.awt.Component;
 import java.awt.event.*;
 import javax.swing.*;
+
+import ui.ChessPanel;
 // -------------------------------------------------------------------------
 /**
  * Represents the north menu-bar that contains various controls for the game.
@@ -98,6 +101,7 @@ public class ChessMenuBar
         while ( possibleFrame != null && !( possibleFrame instanceof JFrame ) ){
             possibleFrame = possibleFrame.getParent();
         }
+        if(possibleFrame == null) return;
         JFrame frame = (JFrame)possibleFrame;
         frame.setVisible( false );
         frame.dispose();

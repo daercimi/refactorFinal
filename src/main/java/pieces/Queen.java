@@ -1,4 +1,9 @@
+package pieces;
 import javax.swing.ImageIcon;
+
+import general.ChessGameBoard;
+import general.ChessGamePiece;
+
 import java.util.ArrayList;
 // import java.awt.Color;
 // -------------------------------------------------------------------------
@@ -63,18 +68,18 @@ public class Queen
     public ImageIcon createImageByPieceType(){
         if ( getColorOfPiece() == ChessGamePiece.WHITE ){
             return new ImageIcon(
-                getClass().getResource("chessImages/WhiteQueen.gif")
+                getClass().getResource("../chessImages/WhiteQueen.gif")
             );            
         }
         else if ( getColorOfPiece() == ChessGamePiece.BLACK ){
             return new ImageIcon(
-                getClass().getResource("chessImages/BlackQueen.gif")
+                getClass().getResource("../chessImages/BlackQueen.gif")
             );            
         }
         else
         {
             return new ImageIcon(
-                getClass().getResource("chessImages/default-Unassigned.gif")
+                getClass().getResource("../chessImages/default-Unassigned.gif")
             ); 
         }
     }

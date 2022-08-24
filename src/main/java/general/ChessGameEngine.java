@@ -1,6 +1,12 @@
+package general;
 import java.util.ArrayList;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+
+import pieces.King;
+import ui.BoardSquare;
+import ui.ChessPanel;
+
 import java.awt.event.MouseEvent;
 // -------------------------------------------------------------------------
 /**
