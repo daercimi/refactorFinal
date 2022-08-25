@@ -87,7 +87,7 @@ public class ChessGameBoard extends JPanel{
      * @return List<GamePiece> the pieces
      */
     public List<ChessGamePiece> getAllWhitePieces(){
-        List<ChessGamePiece> whitePieces = new ArrayList<ChessGamePiece>();
+        List<ChessGamePiece> whitePieces = new ArrayList<>();
         for ( int i = 0; i < 8; i++ ){
             for ( int j = 0; j < 8; j++ ){
                 if ( chessCells[i][j].getPieceOnSquare() != null
@@ -106,7 +106,7 @@ public class ChessGameBoard extends JPanel{
      * @return ArrayList<GamePiece> the pieces
      */
     public List<ChessGamePiece> getAllBlackPieces(){
-        List<ChessGamePiece> blackPieces = new ArrayList<ChessGamePiece>();
+        List<ChessGamePiece> blackPieces = new ArrayList<>();
         for ( int i = 0; i < 8; i++ ){
             for ( int j = 0; j < 8; j++ ){
                 if ( chessCells[i][j].getPieceOnSquare() != null
@@ -161,8 +161,6 @@ public class ChessGameBoard extends JPanel{
             }
         }
         repaint();
-        //revalidate();
-        // only the combination of these two calls work...*shrug*
     }
     /**
      * (Re)initializes this ChessGameBoard to its default layout with all 32
@@ -172,40 +170,9 @@ public class ChessGameBoard extends JPanel{
         resetBoard( false );
         for ( int i = 0; i < chessCells.length; i++ ){
             for ( int j = 0; j < chessCells[0].length; j++ ){
-                ChessGamePiece pieceToAdd;
-                if ( i == 1 ) // black pawns
-                {
-                    pieceToAdd = new Pawn( this, i, j, ChessGamePiece.BLACK );
-                }
-                else if ( i == 6 ) // white pawns
-                {
-                    pieceToAdd = new Pawn( this, i, j, ChessGamePiece.WHITE );
-                }
-                else if ( i == 0 || i == 7 ) // main rows
-                {
-                    int colNum =
-                        i == 0 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
-                    if ( j == 0 || j == 7 ){
-                        pieceToAdd = new Rook( this, i, j, colNum );
-                    }
-                    else if ( j == 1 || j == 6 ){
-                        pieceToAdd = new Knight( this, i, j, colNum );
-                    }
-                    else if ( j == 2 || j == 5 ){
-                        pieceToAdd = new Bishop( this, i, j, colNum );
-                    }
-                    else if ( j == 3 ){
-                        pieceToAdd = new King( this, i, j, colNum );
-                    }
-                    else
-                    {
-                        pieceToAdd = new Queen( this, i, j, colNum );
-                    }
-                }
-                else
-                {
-                    pieceToAdd = null;
-                }
+
+                ChessGamePiece pieceToAdd = pieceShouldBe(i, j);
+                
                 chessCells[i][j] = new BoardSquare( i, j, pieceToAdd );
                 if ( ( i + j ) % 2 == 0 ){
                     chessCells[i][j].setBackground( Color.WHITE );
@@ -219,6 +186,47 @@ public class ChessGameBoard extends JPanel{
             }
         }
     }
+    // ----------------------------------------------------------
+    /**
+     * Returns the piece that should be on each square at the board.
+     */
+    ChessGamePiece pieceShouldBe(int i, int j){
+        ChessGamePiece pieceToAdd = null;
+
+        if ( i == 1 ) // black pawns
+        {
+            pieceToAdd = new Pawn( this, i, j, ChessGamePiece.BLACK );
+        }
+        
+        else if ( i == 6 ) // white pawns
+        {
+            pieceToAdd = new Pawn( this, i, j, ChessGamePiece.WHITE );
+        }
+
+        else if ( i == 0 || i == 7 ) // main rows
+        {
+            int colNum =
+                i == 0 ? ChessGamePiece.BLACK : ChessGamePiece.WHITE;
+            if ( j == 0 || j == 7 ){
+                pieceToAdd = new Rook( this, i, j, colNum );
+            }
+            else if ( j == 1 || j == 6 ){
+                pieceToAdd = new Knight( this, i, j, colNum );
+            }
+            else if ( j == 2 || j == 5 ){
+                pieceToAdd = new Bishop( this, i, j, colNum );
+            }
+            else if ( j == 3 ){
+                pieceToAdd = new King( this, i, j, colNum );
+            }
+            else
+            {
+                pieceToAdd = new Queen( this, i, j, colNum );
+            }
+        }
+        return pieceToAdd;
+    }
+
     // ----------------------------------------------------------
     /**
      * Clears the colors on the board.
