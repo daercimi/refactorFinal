@@ -80,8 +80,10 @@ public class ChessMenuBar
     private void aboutHandler(){
         JOptionPane.showMessageDialog(
             this.getParent(),
-            "YetAnotherChessGame v1.0 by:\nBen Katz\nMyles David\n"
-                + "Danielle Bushrow\n\nFinal Project for CS2114 @ VT" );
+                """
+                YetAnotherChessGame v1.0 by:\nBen Katz\nMyles David\n
+                Danielle Bushrow\n\nFinal Project for CS2114 @ VT
+                    """);
     }
     /**
      * Takes an appropriate action if the restart button is clicked.
