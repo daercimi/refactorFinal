@@ -17,7 +17,7 @@ import java.util.Map;
  * @version 2010.11.17
  */
 public class Rook extends ChessGamePiece{
-	protected Map<Integer, String> iconsMap;
+	private Map<Integer, String> iconsMap;
 	// ----------------------------------------------------------
 	/**
 	 * Create a new Rook object.
@@ -59,7 +59,7 @@ public class Rook extends ChessGamePiece{
 	 */
 	@Override
 	public ImageIcon createImageByPieceType() {
-		iconsMap = new HashMap<Integer, String>();
+		iconsMap = new HashMap<>();
 
 		iconsMap.put(-1, "../chessImages/default-Unassigned.gif");
 		iconsMap.put(ChessGamePiece.BLACK, "../chessImages/BlackRook.gif");
